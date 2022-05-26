@@ -16,11 +16,17 @@ export default function ManageExpense({ route, navigation }) {
 		});
 	}, [navigation, isEditing]);
 
-	function deleteExpenseHandler() {}
+	function deleteExpenseHandler() {
+		navigation.goBack();
+	}
 
-	function confirmHandler() {}
+	function confirmHandler() {
+		navigation.goBack();
+	}
 
-	function cancelHandler() {}
+	function cancelHandler() {
+		navigation.goBack();
+	}
 
 	return (
 		<View style={styles.container}>
