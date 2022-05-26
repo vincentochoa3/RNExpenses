@@ -21,6 +21,7 @@ function ExpensesOverview() {
 				headerTintColor: "white",
 				tabBarStyle: { backgroundColor: Styles.colors.primary500 },
 				tabBarActiveTintColor: Styles.colors.accent500,
+				headerRight: () => {},
 			}}
 		>
 			<BottomTabs.Screen
