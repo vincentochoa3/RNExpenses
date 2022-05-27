@@ -4,7 +4,6 @@ import { View, StyleSheet } from "react-native";
 import Button from "../components/UI/Button";
 import IconButton from "../components/UI/IconButton";
 import { ExpensesContext } from "../store/expenses-context";
-
 import { Styles } from "../constants/styles";
 
 export default function ManageExpense({ route, navigation }) {
@@ -24,6 +23,19 @@ export default function ManageExpense({ route, navigation }) {
 	}
 
 	function confirmHandler() {
+		if (isEditing) {
+			expensesCtx.updateExpense(editedExpenseId, {
+				description: "Test",
+				amount: 99.99,
+				date: new Date("2022/05/25"),
+			});
+		} else {
+			expensesCtx.addExpense({
+				description: "Test2",
+				amount: 19.99,
+				date: new Date("2022/05/23"),
+			});
+		}
 		navigation.goBack();
 	}
 

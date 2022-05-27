@@ -11,7 +11,7 @@ export default function RecentExpenses() {
 		const today = new Date();
 		const weekAgo = getDateMinusDays(today, 7);
 
-		return expense.date > weekAgo;
+		return expense.date >= weekAgo && expense.date <= today;
 	});
 
 	return (
