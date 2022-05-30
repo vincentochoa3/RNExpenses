@@ -1,14 +1,19 @@
 import { useState } from "react";
-import { View, StyleSheet, Text } from "react-native";
+import { View, StyleSheet, Text, Alert } from "react-native";
 
 import Button from "../UI/Button";
 import Input from "./Input";
 
-export default function ExpenseForm({ onCancel, isEditing, onSubmit }) {
+export default function ExpenseForm({
+	onCancel,
+	isEditing,
+	onSubmit,
+	defaultValues,
+}) {
 	const [inputValues, setInputValue] = useState({
-		amount: "",
-		date: "",
-		description: "",
+		amount: defaultValues ? defaultValues.amount.toString() : "",
+		date: defaultValues ? defaultValues.date.toLocaleDateString() : "",
+		description: defaultValues ? defaultValues.description : "",
 	});
 
 	function inputChangedHandler(inputIdentifier, enteredValue) {
@@ -26,6 +31,15 @@ export default function ExpenseForm({ onCancel, isEditing, onSubmit }) {
 			date: new Date(inputValues.date),
 			description: inputValues.description,
 		};
+
+		const amountIsValid = !isNaN(expenseData.amount) && expenseData.amount > 0;
+		const dateIsValid = expenseData.date.toString() !== "Invalid Date";
+		const descriptionIsValid = expenseData.description.trim().length > 0;
+
+		if (!amountIsValid || !dateIsValid || !descriptionIsValid) {
+			Alert.alert("Invalid Input", "Please check your input values");
+			return;
+		}
 		onSubmit(expenseData);
 	}
 
@@ -46,7 +60,7 @@ export default function ExpenseForm({ onCancel, isEditing, onSubmit }) {
 					style={styles.rowInput}
 					label="Date"
 					textInputConfig={{
-						placeholder: "YYYY/MM/DD",
+						placeholder: "MM/DD/YYYY",
 						maxLength: 10,
 						onChangeText: inputChangedHandler.bind(this, "date"),
 						value: inputValues.date,
