@@ -26,7 +26,7 @@ export default function ExpenseItem({ id, description, amount, date }) {
           <Text style={styles.textBase}>{getFormattedDate(date)}</Text>
         </View>
         <View style={styles.amountContainer}>
-          <Text style={styles.amount}>{amount.toFixed(2)}</Text>
+          <Text style={styles.amount}>${amount.toFixed(2)}</Text>
         </View>
       </View>
     </Pressable>
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
   expenseItem: {
     padding: 12,
     marginVertical: 8,
-    backgroundColor: Styles.colors.primary500,
+    backgroundColor: Styles.colors.primary400,
     flexDirection: "row",
     justifyContent: "space-between",
     borderRadius: 6,
@@ -61,14 +61,14 @@ const styles = StyleSheet.create({
   amountContainer: {
     paddingHorizontal: 12,
     paddingVertical: 4,
-    backgroundColor: "white",
+    // backgroundColor: Styles.colors.primary100,
     justifyContent: "center",
     alignItems: "center",
     borderRadius: 4,
     minWidth: 80,
   },
   amount: {
-    color: Styles.colors.primary500,
+    color: Styles.colors.primary50,
     fontWeight: "bold",
   },
 });

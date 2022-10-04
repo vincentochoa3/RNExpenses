@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 24,
-    backgroundColor: Styles.colors.primary800,
+    backgroundColor: Styles.colors.primary700,
   },
   deleteContainer: {
     marginTop: 16,

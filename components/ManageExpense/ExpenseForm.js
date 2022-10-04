@@ -71,7 +71,6 @@ export default function ExpenseForm({
 
   return (
     <View style={styles.form}>
-      <Text style={styles.title}>Your Expense</Text>
       <View style={styles.inputsRow}>
         <Input
           style={styles.rowInput}
@@ -122,16 +121,6 @@ export default function ExpenseForm({
 }
 
 const styles = StyleSheet.create({
-  form: {
-    marginTop: 40,
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: "bold",
-    color: "white",
-    marginVertical: 24,
-    textAlign: "center",
-  },
   inputsRow: {
     flexDirection: "row",
     justifyContent: "space-between",
