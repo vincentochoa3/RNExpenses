@@ -16,6 +16,7 @@ export default function ExpensesOutput({
     content = <ExpensesList expenses={expenses} />;
   }
 
+
   return (
     <View style={styles.container}>
       <ExpensesSummary expenses={expenses} periodName={expensesPeriod} />
